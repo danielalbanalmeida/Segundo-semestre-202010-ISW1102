@@ -1,0 +1,58 @@
+Nuevo Salario Neto Semanal de un trabajador en funcion del numero de horas trabajadas
+y la tasa de impuestos 
+
+Salario Neto Semanal (sneto)   
+Salario Bruto (sbruto)
+impuestos (opcion1, opcion2, opcion3)
+horas trabajadas
+
+
+
+*******************************************************************************/
+#include <stdio.h>
+#include <math.h>
+
+
+void main()
+{
+    int horas,nombre;
+    char nombre[10]
+    float tarifaH=40,sneto=0, sbruto=0, imp=0, impuestos;
+    printf("Ingrese el nombre:");
+    scanf("%s",&nombre);
+    printf("Ingrese numero de horas trabajadas");
+    scanf("%d",&horas);
+    if (horas<=35);// depende del numero de horas cambia la tarifa
+    {   
+        tarifaH=40; // tarifa de 40 dolares
+        sneto=horas*tarifaH
+    
+    }
+    
+    else
+    {
+        tarifaH=40*1.5; // tarifa aumentada  
+        sneto=horas*tarifaH
+    }
+    
+    sbruto=sneto;
+    if (sneto<1000)// salario obtenido se pone impuestos
+        sbruto=sneto; // no hay impuestos
+        
+    else if (sbruto>1000) 
+        sneto=sbruto*0.25;// impuesto del 25%
+        sneto=salario-impuestos;// sneto=salario resultante- impuestos del 25%
+    
+    }
+    else if (sal>1500)
+    
+        
+    {    
+        imp=sbruto*0.45;//  45 % impuesto
+        
+        sneto=sbruto-imp;
+    }
+        
+    printf("su salario bruto es %.2f.\nsu salario neto es de%.2f.\nsu tasa de impuestos es de %.2f.",sbruto,sneto,imp);
+    
+}

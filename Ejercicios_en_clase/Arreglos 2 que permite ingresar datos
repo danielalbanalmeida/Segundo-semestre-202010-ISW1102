@@ -1,0 +1,72 @@
+/******************************************************************************
+Programa en C que permite ingresar elementos a un arreglo y los imprime
+
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#define tam 10
+void inicializaArreglo(int[]);
+void datosVector(int);
+void main()
+{
+    int arreglo[tam]={2,4,5,-1}, cantNum, op;
+    printf("Menu Principal\n1.Incializacion arreglo\n2.Datos Vector\n3.Salir\n");
+    printf("Ingrese una opcion:\n");
+    scanf("%d",&op);
+    
+    while(op<=2)
+    {
+        switch (op)
+        {
+            case 1:
+                inicializaArreglo(arreglo);
+            break;
+        
+            case 2:
+                printf ("Ingrese la cantidad de elementos del vector:");
+                scanf ("%d", &cantNum);
+                datosVector(cantNum);
+            break;
+        
+            case 3:
+                exit(0);
+            break;
+        
+            default:
+                printf("Opcion Invalida\n");
+            break;
+        }
+        printf("Menu Principal\n1.Incializacion arreglo\n2.Datos Vector\n3.Salir\n");
+        printf("Ingrese una opcion:\n");
+        scanf("%d",&op);
+    }
+}    
+    
+
+void inicializaArreglo(int arreg[tam])
+{
+    int cont=0;
+    while (cont<4)
+    {
+        printf("arreglo[%d]=%d\n", cont,arreg[cont]);
+        cont++;
+    }
+}
+void datosVector(int cant)
+{   
+    int cont=0,arreglo[tam];
+    while(cont<cant)
+    {
+        printf("Ingrese el elemento[%d]:", cont);
+        scanf("%d", &arreglo[cont]);
+        cont++;
+    }
+    printf("Elementos del Vector: \n");
+    cont=0;
+    while (cont<cant)
+    {   
+        printf("arreglo [%d]=%d\n", cont, arreglo[cont]);
+        cont++;
+    }
+}    

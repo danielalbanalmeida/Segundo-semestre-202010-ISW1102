@@ -1,0 +1,22 @@
+/******************************************************************************
+Programa en C que permite ingresar elementos a un arreglo y los imprime
+
+
+*******************************************************************************/
+#include <stdio.h>
+#define tam 10
+void inicializaArreglo(int[]);
+void main()
+{
+    int arreglo[tam]={2,4,5,-1};
+    inicializaArreglo(arreglo);
+}
+void inicializaArreglo(int arreg[tam])
+{
+    int cont=0;
+    while (cont<4)
+    {
+        printf("arreglo[%d]=%d\n", cont,arreg[cont]);
+        cont++;
+    }
+}
