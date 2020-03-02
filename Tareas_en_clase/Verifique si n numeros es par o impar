@@ -1,0 +1,26 @@
+Verifique de n numeros positivos,si es par o impar
+
+*******************************************************************************/
+#include <stdio.h>
+
+void main()
+{
+    int cont=1, nNumeros, num;
+    printf("Ingrese la cantidad de numeros:");
+    scanf("%d", &nNumeros);
+    while(cont<=nNumeros)
+    {
+        printf("Ingrese un numero:");
+        scanf("%d",&num);
+        while(num<0)
+        {
+            printf("Ingrese un numero positivo");
+            scanf("%d", &num);
+        }
+        if(num%2==0)
+            printf("Par\n");
+        else
+            printf("Impar\n");
+    cont++;
+    }
+}
