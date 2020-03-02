@@ -1,0 +1,294 @@
+/******************************************************************************
+
+Luis Corales, Diego Hiriart LeÃ³n, Daniel AlbÃ¡n
+
+IngenierÃ­a de Software
+
+ISW 1102-01 ProgramaciÃ³n 1
+
+Paralelo1 Portafolio de Ejercicios: Sentencias Condicionales y Repetitivas
+    Resolver los siguientes ejercicios adjuntos en lenguaje C con sus respectivos comentarios, debe subir un estudiante por grupo 
+    es decir el lÃ­der, el documento debe estar comprimido en la que debe guardar todos los programas. los ejercicios de grupo se 
+    deben realizar en un menÃº y ser repetitivos, es decir cada ejercicio es un caso.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <math.h>     ///InclusiÃ³n de biblioteca math para ejercicios con comandos que lo requieren
+
+void main()
+{
+    int opcion;       ///DeclaraciÃ³n de la variable de control del menu
+    
+    printf("Seleccione una opciÃ³n para ejecutar un ejercicio o salir del programa\n"); 
+    
+    ///A continuaciÃ³n, la impresiÃ³n de opciones y selecciÃ³n
+    printf("Menu\n1. Ejercicio 1\n2. Ejercicio 2\n3. Ejercicio 3\n4. Ejercicio 4\n5. Ejercicio 5\n0. Salir\n");     
+    scanf("%d", &opcion);
+    
+    while(opcion!=0)     ///Esta sentencia repetitiva, permite ejecutar los ejercicios cuantas veces sea necesario
+    {
+        switch(opcion)
+        {
+            case 1:     ///Se ejecuta el Ejercicio 1 en caso de que escoja la opciÃ³n
+                {
+                float compra, precio_final; /*Se decalaran variables*/ 
+                printf("Ingrese el valor de la compra:\n"); /*Se ingresa el valor de compras*/ 
+                scanf("%f", &compra); 
+    
+                if (compra<800)  /*Si la compra es menor a 800 se aplican las condiciones adecuadas*/ 
+                {
+                    printf("Descuento de 0%%\n"); /*Imprime que el descuento es de cero porciento*/
+                    precio_final=compra; /*Se mantiene el precio del producto pues no hay descuento*/
+                    printf("El precio final es de:%.2f\n", precio_final);
+                }
+                else
+                {
+                    if((compra>=800)&&(compra<=1500)) /*Si la compra es mayor o igual a 800 y menor o igual a 1500 se aplican las siguientes condiciones*/
+                    {
+                        printf("Descuento de 10%%\n"); /*Imprime descuento de diez porciento*/
+                        precio_final=compra*0.9; /*Formula para el precio_final de 10 porciento*/
+                        printf("El precio final es de:%.2f\n", precio_final);
+                    }
+                    else
+                    {
+                        if((compra>=1500)&&(compra<=5000)) /*Si la compra es mayor o igual a 1500 y compra es menor o igual a 5000 imprime las siguientes condiciones*/
+                        {
+                            printf("Descuento de 15%%\n");/*Imprime descuento de quince porciento*/
+                            precio_final= compra*0.85; /*Formula para el precio_final de 15 porciento*/
+                            printf("El precio final es de:%.2f\n", precio_final);
+                        }
+                        else
+                        {
+                            if(compra>5000) /*Por ultimo, si las condiciones anterirores no se cumplen se, aplica una uÃºtima de cuando la compra es mayor a 5000*/
+                            {
+                                printf("Descuento de 20%%\n"); /*Imprime descuento de veinte porciento*/
+                                precio_final=compra*0.8; /*Formula para el precio_final de 20 porciento*/
+                                printf("El precio final es de:%.2f\n", precio_final);
+                            }
+                        }
+                    }
+                }
+                }
+            break;
+                
+            case 2:     ///Se ejecuta el Ejercicio 2 en caso de que escoja la opciÃ³n
+                {
+                    float L1, L2, L3, area=0, S=0;          ///DeclaraciÃ³n de variables
+    
+                    ///Bloque de ingreso de datos
+                    printf("Ingrese el valor del lado 1:\n");
+                    scanf("%f", &L1);
+                    printf("Ingrese el valor del lado 2:\n");
+                    scanf("%f", &L2);
+                    printf("Ingrese el valor del lado 3:\n");
+                    scanf("%f", &L3);
+    
+                    ///El siguiente condcional verifica si los lados ingresados corresponden a un triÃ¡ngulo
+                    if(L1+L2>L3 && L1+L3>L2 && L2+L3>L1)
+                    {
+                        printf("Los lados ingresados corresponden a un triÃ¡ngulo.\n");
+        
+                        ///El siguiente bloque calcula el Ã¡rea y determina si el triÃ¡ngulo es equilatero, isÃ³sceles o escaleno
+                        S=(L1+L2+L3)/2;
+                        area=sqrt(S*(S-L1)*(S-L2)*(S-L3));
+                        printf("El Ã¡rea del triÃ¡ngulo es: %.2f\n", area);
+                        if(L1==L2 && L2==L3)       ///Esta condiciÃ³n determina si es un triÃ¡ngulo equilÃ¡tero
+                        {
+                            printf("El trÃ­angulo es equilÃ¡tero.\n");
+                        }
+                        else if(L1==L2 || L1==L3 || L2==L3)        ///Esta condiciÃ³n verifica si es un triÃ¡ngulo isÃ³sceles
+                        {
+                            printf("El triÃ¡ngulo es isÃ³sceles.\n");
+                        }
+                        else if(L1!=L2 && L1!=L3 && L2!=L3)         ///Con esta condiciÃ³n se determina si es un triÃ¡ngulo escaleno
+                        {
+                            printf("El triÃ¡ngulo es escaleno.\n");
+                        }
+                    }
+    
+                    ///El siguiente bloque se ejecuta si los lados ingresados no corresponden a un triÃ¡ngulo
+                    else
+                    {
+                        printf("Los lados ingresados no corresponden a un triÃ¡ngulo.\n");
+                    }
+                }
+            break;
+                
+            case 3:     ///Se ejecuta el Ejercicio 3 en caso de que escoja la opciÃ³n
+                {
+                    int I=3, SSE=0, CAM=2;        ///DeclaraciÃ³n de variables
+    
+                    ///El siguiente bloque realiza la impresiÃ³n y suma de tÃ©rminos
+                    while(CAM<=2500)
+                    {
+                        printf("%d\n", CAM);        ///Este comando imprime cada nÃºmero de la serie uno por uno cada vez que se repite el ciclo 
+                        SSE=SSE+CAM;                ///La operaciÃ³n corresponde a la suma de tÃ©rminos de la serie 
+        
+                        ///El siguiente switch permite alternar entre el aumento de 5 y 3 unidades a la serie
+                        switch (I)
+                        {
+                            case 3:
+                                I=5;
+                            break;
+            
+                            case 5:
+                                I=3;
+                            break;
+                        }
+                        CAM += I;
+                    }
+    
+                    ///El siguiente comando muestra la suma de los tÃ©rminos de la serie
+                    printf("La suma de los tÃ©rminos de la serie es: %d\n", SSE);
+                }
+            break;
+                
+            case 4:     ///Se ejecuta el Ejercicio 4 en caso de que escoja la opciÃ³n
+                {
+                    //DeclaraciÃ³n de variables
+                    int voto;
+                    float vot1 = 0, vot2 = 0, vot3 = 0, vot4 = 0, vot5 = 0, total = 0, pVot1 = 0, pVot2 = 0, pVot3 = 0, pVot4 = 0, pVot5 = 0;
+    
+                    //El usuario debe ingresar un voto
+                    printf("Ingrese el voto (ingrese cero para terminar el ingreso):\n");
+                    scanf("%i", &voto);
+    
+                    //Un iterador que permita cerrar el ciclo del conteo de votos al ingresar un 0
+                    while(voto != 0){
+        
+                        //Un iterador que restrinja al usuario a poner valores del 1 al 5
+                        while(voto < 0 || voto > 5){
+                            printf("Debe ingresar un voto valido (de 1 a 5). Vuelva a ingresar:\n");
+                            scanf("%i", &voto);
+                        }
+        
+                        /*Un selector de los votos, donde se almacena la cantidad de 
+                        votos total y la cantidad de votos de cada candidato*/
+                        switch(voto)        
+                        {
+                            case 1:
+                                vot1++;
+                                total++;
+                            break;
+            
+                            case 2:
+                                vot2++;
+                                total++;
+                            break;
+            
+                            case 3:
+                                vot3++;
+                                total++;
+                            break;
+            
+                            case 4:
+                                vot4++;
+                                total++;
+                            break;
+            
+                            case 5:
+                                vot5++;
+                                total++;
+                            break;
+            
+                            default:
+                            break;
+                        }
+        
+                        //Pedir al usuario que vuelva a ingresar un voto
+                        printf("Ingrese el voto (ingrese cero para terminar el ingreso):\n");
+                        scanf("%i", &voto);
+                    }
+    
+                    //Calcular el porcentaje de todos los candidatos
+                    pVot1 = (vot1 * 100) / total;
+                    pVot2 = (vot2 * 100) / total;
+                    pVot3 = (vot3 * 100) / total;
+                    pVot4 = (vot4 * 100) / total;
+                    pVot5 = (vot5 * 100) / total;
+    
+                    //Imprimir los resultados con los porcentajes
+                    printf("El candidato 1 obtuvo %f votos con el %.2f porciento de los votos\n", vot1, pVot1);
+                    printf("El candidato 2 obtuvo %f votos con el %.2f porciento de los votos\n", vot2, pVot2);
+                    printf("El candidato 3 obtuvo %f votos con el %.2f porciento de los votos\n", vot3, pVot3);
+                    printf("El candidato 4 obtuvo %f votos con el %.2f porciento de los votos\n", vot4, pVot4);
+                    printf("El candidato 5 obtuvo %f votos con el %.2f porciento de los votos\n", vot5, pVot5);
+                }
+            break;
+                
+            case 5:     ///Se ejecuta el Ejercicio 5 en caso de que escoja la opciÃ³n
+                {
+                //DeclaraciÃ³n de variables
+                int cont, mat, mayorMat = 0, menorMat = 0;
+                float total, menorProm = 11, mayorProm = 0, cal, prom;
+    
+                //Se debe ingresar la matricula del primer alumno
+                printf("Ingrese la matricula (0 detendra el proceso): ");
+                scanf("%i", &mat);
+    
+                //Iterador para verificar si la matricula es distinta de 0
+                while(mat != 0)
+                {
+                    //El total de las calificaciones y el promedio se inician en 0
+                    prom = 0;
+                    total = 0;
+        
+                    //Iterador para ingresar las 5 calificaciones de cada alumno
+                    for(cont = 1; cont <= 5; cont++)
+                    {
+                        //Iterador para asegurar que las calificaciones sean de 0 a 10
+                        do
+                        {
+                            printf("Ingrese la calificaciÃ³n (deben ser entre 0 y 10): ");
+                            scanf("%f", &cal);
+                        }while(cal < 0 || cal > 10);
+            
+                        //Cada nota se agrega al total del alumno
+                        total = cal + total;
+                    }
+        
+                    //Se calcula el promedio con el total de las calificaciones entre 5
+                    prom = total / 5;
+        
+                    //Se imprime un mensaje con la matricula del alumno y su promedio
+                    printf("El alumno %i tiene un promedio de: %.2f\n\n", mat, prom);
+        
+                    //Almacenar la matricula y el promedio del mejor promedio 
+                    if(prom > mayorProm)
+                    {
+                        mayorProm = prom;
+                        mayorMat = mat;
+                    }
+        
+                    //Almacenar la matricula y el promedio del peor promedio 
+                    if(prom < menorProm)
+                    {
+                        menorProm = prom;
+                        menorMat = mat;
+                    }
+        
+                    //Se pide que se vuelva a ingresar la matricula del alumno
+                    printf("Ingrese la matricula: ");
+                    scanf("%i", &mat);
+                }
+    
+                //Se imprime un mensaje del peor y mejor promedio con sus matriculas y promedios respectivos
+                printf("El mayor promedio pertenece al alumno %i con un promedio de %.2f\n", mayorMat, mayorProm);
+                printf("El menor promedio pertenece al alumno %i con un promedio de %.2f\n", menorMat, menorProm);
+    
+                }
+            break;
+                
+            default:     ///En caso de no ser ingresado un numero vÃ¡lido, se muestra el siguiente mensaje 
+                printf("Por favor, seleccione una opciÃ³n vÃ¡lida.\n");
+            break;
+        }
+        
+        ///Las tres siguientes lineas de cÃ³digo permiten volver a seleccionar una opciÃ³n
+        printf("Seleccione una opciÃ³n para ejecutar un ejercicio o salir del programa\n");
+        printf("Menu\n1. Ejercicio 1\n2.Ejercicio 2\n3. Ejercicio 3\n4. Ejercicio 4\n5. Ejercicio 5\n0. Salir\n");     
+        scanf("%d", &opcion);
+    }
+    
+    printf("\nPrograma terminado.\n");     ///Esta impresiÃ³n le da a conocer al usuario que el programa terminÃ³ de ejecutarse
+}
