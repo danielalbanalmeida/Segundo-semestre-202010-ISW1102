@@ -1,0 +1,152 @@
+/******************************************************************************
+
+Realice un programa que contiene Switch/funciones
+
+*******************************************************************************/
+#include <stdio.h>
+#include <math.h>
+
+float areaCirculo(float radio);
+int factoria(int num);
+int tablaMult(int, int);
+void parImpar (int);
+void posNegCeros(int);
+void promedioNotas (int,int);
+void main()
+
+
+{
+    float radio;
+    int num, tabla, lim, op, nest, nnotas, cant;
+    do
+    {
+        printf("1.Area del Circulo\n2.Factorial\n3.Tabla Multiplicar\n4.parImpar\n5. Promedio de Estudiantes\n.6 Salir\n");
+        scanf("%d", &op);
+    switch(op)
+        {
+        case 1:
+        printf("Area del Circulo\n");
+        printf("Ingrese el radio\n: ");
+        scanf("%f", &radio);
+        printf("El area del circulo %.2f", areaCirculo(radio));
+        getchar();
+        system("cls");
+        break;
+        case 2:
+        printf("Factorial de un numero\n: ");
+        printf("Ingrese el numero:");
+        scanf("%d", &num);
+        printf("El factorial de un numero es %d\n", factorial(num));
+        getchar();
+        system("cls");
+        break;
+        case 3:
+        printf("Tabla de multiplicar\n");
+        printf("Ingrese la tabla a multiplicar:");
+        scanf("%d", &tabla);
+        printf("Ingrese el limite: ");
+        scanf("%d", &lim);
+        getchar();
+        system("cls");
+        break;
+        case 4:
+        printf("Par o Impar\n");
+        printf("Ingrese el numero: ");
+        scanf("%d", &num);
+        parImpar (num);
+        getchar();
+        system("cls");
+        break;
+        case 5:
+        printf("Ingrese la cantidad de numeros:");
+			scanf("%d",&cant);
+			posNegCeros(cant);
+			getch();
+			system("cls");
+        break;
+        case 6:
+            printf("Ingrese el numero de estudiantes:");
+			scanf("%d",&nest);
+			printf("Ingrese el numero de notas:");
+			scanf("%d",&nnotas);
+			promedioNotas(nest,nnotas);
+        exit(0);
+        break;
+    }
+}while(op<=4);
+}
+float areaCirculo(float radio)
+{
+    float area=0, pi=3.1416;
+    area=pi*pow(radio,2);
+    return area;
+}
+int factorial(int num)
+{   
+    int fact=1, cont=1;
+    while (cont<=num)
+    {
+        fact=fact*cont;
+        cont++;
+    }
+    return fact;
+}
+    int tablaMult(int tabla,int lim)
+    {
+        int mult=1, cont=1;
+        while(cont<=lim)
+        {
+            mult=tabla*cont;
+            printf("%dX%d", tabla, cont, mult);
+            cont++;
+        }
+        return mult;
+}
+    void parImpar(int num)
+{
+    if(num%2==0)
+        printf("Es par\n");
+    else
+        printf("Impar\n ");
+}       
+void posNegCeros(int cant)
+{
+	int cont=1,num,pos=0,neg=0,ceros=0;
+	while(cont<=cant)
+	{
+		printf("Ingrese un numero:");
+		scanf("%d",&num);
+		if(num>0)
+		  	pos++;
+		else if(num<0)
+			neg++;
+		else
+		    ceros++;
+	cont++;
+	}
+	printf("Positivos %d\n",pos);	
+	printf("Negativos %d\n",neg);	
+	printf("ceros %d\n",ceros);
+}
+void promedioNotas(int nest, int nnotas)
+{
+	int cont1=1, cont=1;
+	float prom=0,notas,suma=0;
+	while(cont1<=nest)
+	{
+		printf("Estudiante %d\n",cont1);
+		cont1=1;
+		suma=0;                            
+		while(cont1<=nnotas)
+		{
+			printf("Ingrese la nota:");
+			scanf("%f",&notas);
+			suma=suma+notas;
+			cont1++;
+		}
+		cont++;
+		prom=suma/nnotas;
+		printf("El promedio es %.2f\n",prom);
+	}
+    return prom;	
+}
