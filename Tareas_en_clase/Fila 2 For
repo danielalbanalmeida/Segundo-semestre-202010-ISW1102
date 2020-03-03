@@ -1,0 +1,36 @@
+/******************************************************************************
+
+Ejercicio Fila 2- Daniel Albán- Sentencia for
+Realizar un programa en C que al recibir como datos un grupo de números naturales positivos,
+calcule el cuadrado de estos números. Imprima el cuadrado del número y al final la suma de
+los cuadrados.
+
+Datos: NUM1, NUM2, NUM3,..., 0
+Donde: NUMi es una variable de tipo entero que representa al número positivo i.
+El fin de los datos está dado por 0.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <math.h>
+
+void main()
+{
+    int num1,num2,num3, cont=1,cont>=1,cont++, suma; /*detallamos variables*/
+    printf("Ingrese un numero positivo:\n"); /* print*/
+    scanf("%d", num1); 
+    for(cont=1; cont>=1; cont++ ); /* se formula la condicion */
+        if(num1>0); /*se utiliza if para demostrar el num1*/
+        {
+            printf(num1^2); /* imprime la variable*/
+            scanf("%d", num1); 
+        }    
+        else if(num2>0) /*se aplica lo mismo para num2*/
+            {
+                printf(num2^2); /*imprime la variable*/
+                scanf("%d", num2);
+            }
+            printf("Suma de cuadrados: "); /* imprime la suma de cuadrados*/
+            suma=((num1^2)+(num2^2)) /*formula para hallar la suma de los cuadrados de los numeros*/
+            }
+        }
+} 
