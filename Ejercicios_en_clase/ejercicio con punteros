@@ -1,0 +1,33 @@
+/******************************************************************************
+
+Punteros 7 enero 2020
+
+*******************************************************************************/
+#include <stdio.h>
+#define tam 100
+
+void ingresoDatos(char[], int, float, char*, int*, float*);
+void main()
+{
+    char frase[10],*f;
+    int num,*n;
+    float numero,*n1;
+    printf ("Ingrese la frase:");
+    gets (frase);
+    printf("Ingrese un numero entero:");    
+    scanf("%d",&num);
+    printf("Ingrese un numero flotante:");
+    scanf("%f",&numero);
+    ingresoDatos(frase, num, numero, f,n,n1); /*no hace falta colocar & ante de paso * referencia de una arreglo, pues ellos estan*/
+    
+}
+void ingresoDatos(char frase[], int num, float numero, char*f, int*n, float*n1)
+{
+    f=frase;  /*no hace falta & pues es un arreglo*/
+    n=&num;
+    n1=&numero;
+    printf("Frase %s\n",f);
+    printf("Numero Entero %d\n", *n);
+    printf("Numero Flotante %f\n",*n1);
+    
+}
