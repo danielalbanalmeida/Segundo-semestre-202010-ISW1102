@@ -1,0 +1,95 @@
+/******************************************************************************
+
+Arreglos bidimensionales
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+#define tam 50
+
+void inicializarVector (float [][tam]);
+void ingresosDatosMatriz(int, int);
+void main()
+{
+    float matriz[][tam]={5.4,3.2,7.8,2.1,5.4,1.2};
+    int op, fil, colum;
+    while (op!=3)
+    {
+        printf ("Menu Principal\n1.Inicializacion Vector\n2. Datos Matriz\n3.Salir\n");
+        printf("Ingres la opcion");
+        scanf("%d", &op);
+        switch(op)
+        {
+    
+            case 1:
+				inicializarVector(matriz);
+				getchar();
+				getchar();
+				system("clear");
+			break;
+			case 2:
+			    printf("Ingrese el numero de filas");
+			    scanf("%d", &fil);
+			    printf("Ingrese el numero de columnas");
+			    scanf("%d", &colum);
+				ingresosDatosMatriz(fil, colum);
+				getchar();
+				getchar();
+				system("clear");
+			break;
+			
+			default:
+			    printf("Opcion Invalida\n");
+		    break;
+        }
+    }
+}
+void inicializarVector(float arreglo[][tam])
+{
+    int i=0, j;
+    while(i<3)
+    {
+        j=0;
+        while (j<2)
+        {
+            printf("%.2f\t", arreglo[i][j]);
+            j++;
+    
+        }
+        printf("\n");
+        i++;
+    }
+}
+
+void ingresosDatosMatriz(int fil, int colum)
+{
+    int i=0, j;
+    float arreglo[tam][tam], suma=0;
+    while(i<fil)
+    {
+        j=0;
+        while(j<colum)
+        {
+            printf("Ingrese el elemento [%d][%d]:", i,j);
+            scanf("%f",&arreglo [i][j]);
+            j++;
+        }
+        i++;
+    }
+    i=0;
+    printf("Elementos de la Matriz:\n");
+    while(i<fil)
+    {
+        j=0;
+        while(j<colum)
+        {
+            printf("%.2f\t",arreglo[i][j]);
+            suma+=arreglo[i][j];
+            j++;
+        }
+        printf("\n");
+        i++;
+    }
+    printf("La suma de los elementos es:%.2f:\n", suma);
+}
